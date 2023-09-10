@@ -10,7 +10,8 @@ function App() {
     const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
     const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
 
-    const [selectedCard, setSelectedCard] = React.useState('')
+    const [selectedCard, setSelectedCard] = React.useState({})
+    const [isImageOpen, setIsImageOpen] = React.useState(false);
 
     function handleEditProfilePopupOpen(){
         setIsEditProfilePopupOpen(!isEditProfilePopupOpen)
@@ -23,13 +24,15 @@ function App() {
     }
 
     function handleCardClick(card){
+        setIsImageOpen(!isImageOpen)
         setSelectedCard(card)
     }
     function closeAllPopups(){
         setIsEditProfilePopupOpen(false)
         setIsAddPlacePopupOpen(false)
         setIsEditAvatarPopupOpen(false)
-        setSelectedCard('')
+        setIsImageOpen(false)
+        setSelectedCard({})
     }
     
     return (
@@ -101,6 +104,7 @@ function App() {
             <ImagePopup 
             card={selectedCard}
             onClose={closeAllPopups}
+            isOpeped={isImageOpen}
             />
             <PopupWithForm
                 name='delete'

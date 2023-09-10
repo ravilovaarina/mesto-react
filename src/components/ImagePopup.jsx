@@ -1,7 +1,7 @@
 import React from "react"
 function ImagePopup(props){
     return(
-        <div className={`popup popup-image ${props.card && 'popup_opened'}`}>
+        <div className={`popup popup-image ${props.isOpeped && 'popup_opened'}`}>
         <div className="popup-image__container">
             <button onClick={props.onClose} type="button" className="popup__button-closed popup-image__button-closed"></button>
             <img alt="Картинка" className="popup-image__pic" src={`${props.card.link}`} />
