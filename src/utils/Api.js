@@ -68,33 +68,41 @@ class Api {
     }
 
     deleteCard(cardId) {
-        return fetch(`${this._url}/cards/${cardId}`,{
+        return fetch(`${this._url}/cards/${cardId}`, {
             method: 'DELETE',
             headers: this._headers,
         })
-        .then((res) => this._checkResponse(res))
+            .then((res) => this._checkResponse(res))
+    }
+    changeLikeCardStatus(cardId, isLiked) {
+        if (isLiked) {
+            return this.deleteCardLike(cardId);
+        } else {
+            return this.putCardLike(cardId);
+        }
     }
 
-    putCardLike(cardId){
-        return fetch(`${this._url}/cards/${cardId}/likes`,{
+    deleteCardLike(cardId) {
+        return fetch(`${this._url}/cards/${cardId}/likes`, {
+            method: 'DELETE',
+            headers: this._headers,
+        })
+            .then((res) => this._checkResponse(res))
+    }
+
+
+    putCardLike(cardId) {
+        return fetch(`${this._url}/cards/${cardId}/likes`, {
             method: 'PUT',
             headers: this._headers,
         })
-        .then((res) => this._checkResponse(res))
-    }
-
-    deleteCardLike(cardId){
-        return fetch(`${this._url}/cards/${cardId}/likes`,{
-            method: 'DELETE',
-            headers: this._headers,
-        })
-        .then((res) => this._checkResponse(res))
+            .then((res) => this._checkResponse(res))
     }
 
     getInitialData() {
         return Promise.all([this.getInfo(), this.getInitialCards()]);
-      }
+    }
 }
 
 const api = new Api(apiConfig)
-export {api}
+export { api }
