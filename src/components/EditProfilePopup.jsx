@@ -40,9 +40,9 @@ export default function EditProfilePopup(props) {
                     id="name"
                     placeholder="Имя"
                     required
-                    minlength="2"
-                    maxlength="40"
-                    value={name}
+                    minLength="2"
+                    maxLength="40"
+                    value={name || ""}
                     onChange={handleNameChange}
                 />
                 <span className="popup__input-error name-error"></span>
@@ -55,9 +55,9 @@ export default function EditProfilePopup(props) {
                     id="bio"
                     placeholder="Описание"
                     required
-                    minlength="2"
-                    maxlength="200"
-                    value={description}
+                    minLength="2"
+                    maxLength="200"
+                    value={description || ""}
                     onChange={handleDescriptionChange}
                 />
                 <span className="popup__input-error bio-error"></span>

@@ -19,9 +19,9 @@ export default function EditAvatarPopup(props) {
       onClose={props.onClose}
       onSubmit={handleSubmit}
     >
-      <label class="popup__field">
-        <input type="url" name="link" class="popup__input" id="avatarUrl" placeholder="ссылка на картинку" required ref={avatarRef} />
-        <span class="popup__input-error avatarUrl-error"></span>
+      <label className="popup__field">
+        <input type="url" name="link" className="popup__input" id="avatarUrl" placeholder="ссылка на картинку" required ref={avatarRef} />
+        <span className="popup__input-error avatarUrl-error"></span>
       </label>
     </PopupWithForm>
   )
