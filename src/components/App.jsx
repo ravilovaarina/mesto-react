@@ -74,8 +74,7 @@ function App() {
         api.deleteCard(card._id)
             .then(
                 () => {
-                    const newCards = cards.filter((elem) => elem !== card);
-                    setCards(newCards);
+                    setCards((state) => state.filter((item) => item._id !== card._id)); 
                 })
             .catch((err) => {
                 console.log(err)
@@ -130,7 +129,7 @@ function App() {
                 />
                 <Footer />
                 <EditProfilePopup isOpen={isEditProfilePopupOpen} onClose={closeAllPopups} onUpdateUser={handleUpdateUser} />
-                <AddPlacePopup isOpen={isAddPlacePopupOpen} onClose={closeAllPopups} onAddPlace={handleAddPlaceSubmit}/>
+                <AddPlacePopup isOpen={isAddPlacePopupOpen} onClose={closeAllPopups} onAddPlace={handleAddPlaceSubmit} />
                 <EditAvatarPopup isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups} onUpdateAvatar={handleUpdateAvatar} />
                 <ImagePopup
                     card={selectedCard}
@@ -140,10 +139,6 @@ function App() {
                 <PopupWithForm
                     name='delete'
                     title='Вы уверены?'
-                    children={
-                        <>
-                        </>
-                    }
                     buttonText='Да'
                 />
             </div>

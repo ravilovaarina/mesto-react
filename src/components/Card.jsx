@@ -13,12 +13,12 @@ function Card(props) {
     function handleDeleteClick() {
         props.onCardDelete(props.card)
     }
-    function handleCardLike(){
+    function handleCardLike() {
         props.onCardLike(props.card)
     }
     return (
         <div className="cards__item">
-            {isOwn && <button type="button" className='cards__button-delete' onClick={handleDeleteClick}/>} 
+            {isOwn && <button type="button" className='cards__button-delete' onClick={handleDeleteClick} />}
             <img onClick={handleCardClick} alt={props.card.name} className="cards__pic" src={props.card.link} />
             <div className="cards__info">
                 <h2 className="cards__text">{props.card.name}</h2>
